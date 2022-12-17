@@ -19,7 +19,7 @@ body {
 	flex: 0 0 auto;
 }
 
-#form-new-session {
+.div-form {
     display: flex;
     flex-direction: column;
     align-items: center;

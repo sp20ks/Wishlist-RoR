@@ -1,16 +1,15 @@
-<div id='form-new-session'>
+<div class='div-form'>
   <%= form_with class: 'my-form', url: session_path do |form| %>
   <div class = 'form-group'>
-    <%= form.label :email, 'Почта', id: 'label_em' %>
-    <%= form.email_field :email, placeholder: 'E-mail', class: 'form-control', id: 'email' %>
-    <small id="emailHelp" class="form-text text-muted">Мы никому не расскажем.</small>
+    <%= form.label :login, 'Логин', id: 'label_log' %>
+    <%= form.text_field :login, class: 'form-control', id: 'login' %>
   </div>
   <div class = 'form-group'>
     <%= form.label :password, 'Пароль', id: 'label_pass' %>
     <%= form.password_field :password, class: 'form-control', id: 'pass' %>
   </div>
   <div class = 'form-group'>
-    <%= link_to 'Ещё нет аккаунта? Тогда регистрируйся :)', '', class: 'link-dark'%>
+    <%= link_to 'Ещё нет аккаунта? Тогда регистрируйся :)', new_us_path, class: 'link-dark'%>
     <%= form.submit('Войти', id: 'log_btn',  class: 'btn btn-outline-dark') %>
   </div>
 <% end %>
