@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
   before_action :no_autorize, only: %i[create]
   before_action :autorize, only: :destroy
 
+  def new; end
+
   def create
     @user = User.find_by(email: params[:email])
     if !!@user && @user.authenticate(params[:password])
