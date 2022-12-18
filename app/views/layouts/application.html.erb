@@ -37,12 +37,12 @@
       </nav>
     </header>
     <div class="content">
-          <% flash.each do |type, msg| %>
-      <div class='alert alert-info' id='flash'>
-        <%= msg %>
-      </div>
-    <% end %>
-    <% flash.clear %>
+        <% flash.each do |type, msg| %>
+          <div class='alert alert-info' id='flash'>
+            <%= msg %>
+          </div>
+          <% flash.clear %>
+        <% end %>
     <%= yield %>
     </div>
 

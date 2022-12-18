@@ -10,10 +10,13 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:email])
     if !!@user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      flash[:success] = 'Вы успешно вошли'
-      redirect_to adding_path
-    else
+      if @user.email_confirmed
+        session[:user_id] = @user.id
+        redirect_to wishlist_path
+      else
+        flash[:notice] = 'Подтвердите почту, указанную при регистрации'
+      end
+    else 
       flash[:notice] = 'Попробуйте еще раз. Некорректный пароль или почта'
     end
   end

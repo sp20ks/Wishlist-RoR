@@ -1,11 +1,11 @@
 <div class='div-form'>
-  <%= form_with class: 'my-form', url: session_path do |form| %>
+  <%= form_with scope: :user, url: make_new_user_path, class: 'my-form', data: {turbo: false} do |form| %>
     <div class = 'form-group'>
-      <%= form.label :email, 'Имя', id: 'label_name' %>
-      <%= form.text_field :name, class: 'form-control', id: 'name' %>
+      <%= form.label :f_name, 'Имя', id: 'label_name' %>
+      <%= form.text_field :f_name, class: 'form-control', id: 'name' %>
     </div>
     <div class = 'form-group'>
-      <%= form.label :email, 'Фамилия', id: 'label_l_name' %>
+      <%= form.label :l_name, 'Фамилия', id: 'label_l_name' %>
       <%= form.text_field :l_name, class: 'form-control', id: 'l_name' %>
     </div>
     <div class = 'form-group'>
@@ -14,16 +14,12 @@
       <small id="emailHelp" class="form-text text-muted">Мы никому не расскажем.</small>
     </div>
     <div class = 'form-group'>
-      <%= form.label :email, 'Логин', id: 'label_log' %>
-      <%= form.text_field :email, class: 'form-control', id: 'email' %>
+      <%= form.label :login, 'Логин', id: 'label_log' %>
+      <%= form.text_field :login, class: 'form-control', id: 'log' %>
     </div>
     <div class = 'form-group'>
       <%= form.label :password, 'Пароль', id: 'label_pass' %>
-      <%= form.password_field :password, class: 'form-control', id: 'pass' %>
-    </div>
-    <div class = 'form-group'>
-      <%= form.label :password, 'Подтверждение пароля', id: 'label_pass' %>
-      <%= form.password_field :confirmation_password, class: 'form-control', id: 'pass' %>
+      <%= form.password_field :password_digest, class: 'form-control', id: 'pass' %>
     </div>
     <div class = 'form-group'>
       <%= link_to 'У меня есть аккаунт', home_path, class: 'link-dark'%>
