@@ -2,16 +2,16 @@
 
 # class of controller
 class SessionsController < ApplicationController
-  before_action :no_autorize, only: %i[create]
+  before_action :no_autorize, only: %i[new create]
   before_action :autorize, only: :destroy
 
   def new; end
 
   def create
-    @user = User.find_by(email: params[:email])
-    if !!@user && @user.authenticate(params[:password])
-      if @user.email_confirmed
-        session[:user_id] = @user.id
+    user = User.find_by(login: params[:login])
+    if !!user && user.authenticate(params[:password])
+      if user.email_confirmed
+        session[:user_id] = user.id
         redirect_to wishlist_path
       else
         flash[:notice] = 'Подтвердите почту, указанную при регистрации'

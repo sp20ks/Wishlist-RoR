@@ -2,6 +2,8 @@
 
 # class of model
 class User < ApplicationRecord
+  has_secure_password
+
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
 
@@ -10,20 +12,19 @@ class User < ApplicationRecord
 
   before_create :confirmation_token
 
-  has_secure_password
-
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-  #validates :password_digest, presence: true, uniqueness: true
-
-  private
-
-  def confirmation_token
-    self.confirm_token = SecureRandom.urlsafe_base64.to_s if confirm_token.blank?
-  end
+  validates :login, presence: true, uniqueness: true
+  validates :f_name, presence: true
 
   def email_activate
     self.email_confirmed = true
     self.confirm_token = nil
     save!(validate: false)
+  end
+
+  private
+
+  def confirmation_token
+    self.confirm_token = SecureRandom.urlsafe_base64.to_s if confirm_token.blank?
   end
 end

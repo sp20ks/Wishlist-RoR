@@ -21,14 +21,14 @@
             <ul class="navbar-nav ms-auto">
               <%if user_signed_in?%>
                 <li class="nav-item">
-                  <a class="nav-link" href="" data-bs-target="#myModal" data-bs-toggle="modal">Личный кабинет</a>
+                  <%= link_to 'Личный кабинет', info_user_path, class: 'nav-link', id: 'profile'%>               
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="" data-bs-target="#myModal" data-bs-toggle="modal">Выйти</a>
+                  <%= link_to 'Выход', exit_path, class: 'nav-link', id: 'exit'%>               
                 </li>
               <%else%>
                 <li class="nav-item">
-                  <a class="nav-link" href="" data-bs-target="#myModal" data-bs-toggle="modal">About</a>
+                  <%= link_to 'О проекте', class: 'nav-link', id: 'about'%>               
                 </li>
               <%end%>
             </ul>

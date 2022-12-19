@@ -1,5 +1,6 @@
-<h1>User#registration_confirmation</h1>
+<h1> Привет, <%= @user.f_name %>! </h1>
 
 <p>
-  find me in app/views/user_mailer/registration_confirmation.html.erb
+  Спасибо за регистрацию. Чтобы продолжить, пройди по ссылке ниже :)
+  <%= link_to 'Подвердить', confirm_email_user_url(@user.confirm_token, email: @user.email) %>
 </p>

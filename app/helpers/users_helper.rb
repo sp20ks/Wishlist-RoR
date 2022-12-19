@@ -4,7 +4,7 @@ module UsersHelper
   end
 
   def user_params
-    params.require(:user).permit(:email, :password_digest, :l_name, :f_name, :login)
+    params.require(:user).permit(:f_name, :l_name, :login, :email, :password, :password_confirmation)
   end
 
   def confirm_email
@@ -14,7 +14,7 @@ module UsersHelper
       flash[:success] = 'Добро пожаловать! Вы успешно зарегистрированы. Войдите, чтобы продолжить'
       redirect_to home_path
     else
-      flash[:error] = 'Извините. Пользователь с такой почтой не найден'
+      flash[:error] = 'Извините. Пользователь с таким логином не найден'
       redirect_to new_us_path
     end
   end
