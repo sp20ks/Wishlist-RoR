@@ -5,10 +5,6 @@ class UsersController < ApplicationController
   include UsersHelper
   #before_action :set_user, only: %i[destroy]
 
-  #def show
-   # @users = User.all
-  #end
-
   def new; end
 
   def edit; end
@@ -19,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if !@user.save
       flash[:warning] = @user.errors.full_messages.join(' и ')
-      redirect_to new_us_path
+      redirect_to new_user_path
     else
       UserMailer.registration_confirmation(@user).deliver
       flash[:success] = 'На указанную почту выслано письмо. Подтвердите почту, пожалуйста.'
@@ -28,16 +24,23 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.update(user_params)
+    @user = current_user
+    if @user.update(user_params)
       flash[:success] = 'Данные были успешно обновлены'
       redirect_to info_user_path
     else
-      flash[:warning] = current_user.errors.full_messages.join(' и ')
+      flash[:warning] = @user.errors.full_messages.join(' и ')
       redirect_to edit_path
     end
   end
 
   def destroy
     redirect_to home_path, notice: 'Аккаунт успешно удален. Приходите еще :(' if User.destroy(current_user.id)
+  end
+
+  def show; end
+
+  def show_edit
+
   end
 end

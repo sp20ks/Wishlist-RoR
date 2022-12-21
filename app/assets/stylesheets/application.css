@@ -70,6 +70,6 @@ li {
     border-left: solid black 5px;
 }
 
-#edit {
+#edit, #div-info {
     font-size: 30px;  
 }

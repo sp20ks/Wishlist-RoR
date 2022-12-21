@@ -34,7 +34,7 @@
                   <%= link_to 'Личный кабинет', info_user_path, class: 'nav-link', id: 'profile'%>               
                 </li>
                 <li class="nav-item">
-                  <%= link_to 'Выход', exit_path, class: 'nav-link', id: 'exit'%>               
+                  <%= button_to 'Выход', session_path, method: :delete, class: 'btn btn-outline-dark', id: 'exit'%>               
                 </li>
               <%else%>
                 <li class="nav-item">
