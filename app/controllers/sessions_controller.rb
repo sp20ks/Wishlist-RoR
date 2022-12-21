@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
       end
     else 
       flash[:notice] = 'Попробуйте еще раз. Некорректный пароль или почта'
+      redirect_to home_path
     end
   end
 

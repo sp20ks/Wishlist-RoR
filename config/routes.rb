@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'gifts/destroy'
   get 'gifts/update'
   resource :session, only: %i[new create destroy]
-  #resources :users
 
   root 'sessions#new', as: 'home'
   get 'sessions/destroy', as: 'exit'
@@ -14,8 +13,11 @@ Rails.application.routes.draw do
 
   get 'users/new', as: 'new_us'
   get 'users/create'
-  get 'users/edit', as: 'info_user'
+  get 'users/info_about_user', as: 'info_user'
   post 'users/create', as: 'make_new_user'
+  get 'users/edit', as: 'edit_user'
+  get 'users/update', as: 'update'
+  post 'users/update'
 
   get 'gifts/show', as: 'wishlist'
   resources :users do

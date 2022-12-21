@@ -3,7 +3,7 @@
 # controller
 class UsersController < ApplicationController
   include UsersHelper
-  before_action :set_user, only: %i[update destroy]
+  #before_action :set_user, only: %i[destroy]
 
   #def show
    # @users = User.all
@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   def new; end
 
   def edit; end
+
+  def info_about_user; end
 
   def create
     @user = User.new(user_params)
@@ -25,7 +27,15 @@ class UsersController < ApplicationController
     end
   end
 
-  def update;  end
+  def update
+    if current_user.update(user_params)
+      flash[:success] = 'Данные были успешно обновлены'
+      redirect_to info_user_path
+    else
+      flash[:warning] = current_user.errors.full_messages.join(' и ')
+      redirect_to edit_path
+    end
+  end
 
   def destroy
     @user.destroy

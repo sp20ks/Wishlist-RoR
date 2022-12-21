@@ -58,3 +58,18 @@ body {
 .form-group {
     margin: 5px;
 }
+
+li {
+    list-style-type: none; /* Убираем маркеры */
+    margin: 10px;
+   }
+
+#links {
+    position: absolute;
+    right: 0;
+    border-left: solid black 5px;
+}
+
+#edit {
+    font-size: 30px;  
+}

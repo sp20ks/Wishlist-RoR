@@ -1,0 +1,20 @@
+<div id='edit' class='div-form'>
+  <div id='div-info-current-user'>
+    <ul>
+      <li>Имя: <%= current_user.f_name %></li>
+      <li>Фамилия: <%= current_user.l_name %></li>
+      <li>Логин: <%= current_user.login %></li>
+      <li>Почта: <%= current_user.email %></li>
+      <li>День рождения: <%= current_user.birth %></li>
+      <li>Дата регистрации: <%= current_user.created_at %></li>
+    </ul>
+  </div>
+  <div id='links'>
+    <ul>
+      <li><%= link_to 'Редактировать данные', edit_user_path, id: 'edit_data', class: 'text-dark' %></li>
+      <li><%= link_to 'Сбросить пароль', '', id: 'edit_password', class: 'text-dark' %></li>
+      <li><%= link_to 'Удалить аккаунт', '', id: 'delete_p', class: 'text-dark' %></li>
+      <li><%= link_to 'Вернуться обратно', wishlist_path, id: 'to_wishlist', class: 'text-dark' %></li>
+    </ul>
+  </div>
+</div>

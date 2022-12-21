@@ -13,7 +13,11 @@
     <header>
       <nav class="navbar-expand-md navbar navbar-light border border-left-0 border-right-0 rounded-bottom" style="background-color: #e3f2fd;">
         <div class="container-fluid">
-          <a class="navbar-brand abs" href="#">Wishlist</a>
+          <% if user_signed_in? %>
+            <%= link_to 'Wishlist', wishlist_path, class: 'navbar-brand abs' %>               
+          <% else %>
+            <%= link_to 'Wishlist', home_path, class: 'navbar-brand abs' %>               
+          <% end %>
           <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNavbar">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -28,7 +32,7 @@
                 </li>
               <%else%>
                 <li class="nav-item">
-                  <%= link_to 'О проекте', class: 'nav-link', id: 'about'%>               
+                  <%= link_to 'О проекте','', class: 'nav-link', id: 'about'%>               
                 </li>
               <%end%>
             </ul>
