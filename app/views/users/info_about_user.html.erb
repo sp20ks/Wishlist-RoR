@@ -13,7 +13,7 @@
     <ul>
       <li><%= link_to 'Редактировать данные', edit_user_path, id: 'edit_data', class: 'text-dark' %></li>
       <li><%= link_to 'Сбросить пароль', '', id: 'edit_password', class: 'text-dark' %></li>
-      <li><%= link_to 'Удалить аккаунт', '', id: 'delete_p', class: 'text-dark' %></li>
+      <li><%= link_to 'Удалить аккаунт', delete_user_path, id: 'delete_p', class: 'text-dark' %></li>
       <li><%= link_to 'Вернуться обратно', wishlist_path, id: 'to_wishlist', class: 'text-dark' %></li>
     </ul>
   </div>

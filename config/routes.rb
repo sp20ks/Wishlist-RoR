@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'users/edit', as: 'edit_user'
   get 'users/update', as: 'update'
   post 'users/update'
+  get 'users/destroy', as: 'delete_user'
 
   get 'gifts/show', as: 'wishlist'
   resources :users do

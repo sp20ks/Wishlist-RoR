@@ -14,8 +14,14 @@
       <nav class="navbar-expand-md navbar navbar-light border border-left-0 border-right-0 rounded-bottom" style="background-color: #e3f2fd;">
         <div class="container-fluid">
           <% if user_signed_in? %>
+            <%= link_to wishlist_path do %>
+              <%= image_tag 'gift_icon.svg', style: 'width:30px;height:30px;' %>
+            <% end%>
             <%= link_to 'Wishlist', wishlist_path, class: 'navbar-brand abs' %>               
           <% else %>
+            <%= link_to home_path do %>
+              <%= image_tag 'gift_icon.svg', style: 'width:30px;height:30px;' %>
+            <% end%>
             <%= link_to 'Wishlist', home_path, class: 'navbar-brand abs' %>               
           <% end %>
           <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNavbar">
