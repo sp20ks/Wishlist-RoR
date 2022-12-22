@@ -37,5 +37,11 @@ class UsersController < ApplicationController
     redirect_to home_path, notice: 'Аккаунт успешно удален. Приходите еще :(' if User.destroy(current_user.id)
   end
 
-  #def show; end
+  def show
+    @users = User.all
+  end
+
+  def show_by_login
+    @user = User.find_by login: params[:login]
+  end
 end

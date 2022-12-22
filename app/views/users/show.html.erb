@@ -1,1 +1,23 @@
-<p>gefdjnvm;OSDnc;k</p>
+<div id='show-users'>
+  <div class=' users' id='user'>
+    <% @users.each do |user| %>
+        <div class='card cartocka' style='width: 25em;margin: 5px;'>
+          <div class="card-body">
+            <h5 class="card-title"> <%= user.login %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= user.f_name %> <%= user.l_name %></h6>
+            <p class="card-text"><%= user.birth %></p>
+            <%= link_to 'Добавить в друзья', '', class: 'card-link text-dark'%>
+          </div>
+        </div>
+    <%end%>
+  </div>
+  <div id='search-line'>
+    <%= form_with url: '/users/show_by_login', class: 'my-form' do |form| %>
+    <div class = 'form-group'>
+      <%= form.label :login, 'Логин', id: 'label_name' %>
+      <%= form.text_field :login, class: 'form-control', id: 'login' %>
+    </div>
+    <% end %>
+  </div>
+    
+</div>

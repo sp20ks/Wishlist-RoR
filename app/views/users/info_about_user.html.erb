@@ -9,7 +9,7 @@
       <li>Дата регистрации: <%= current_user.created_at %></li>
     </ul>
   </div>
-  <div id='links'>
+  <div class='links'>
     <ul>
       <li><%= link_to 'Редактировать данные', '/users/edit', class: 'text-dark', data: {turbo_method: :post} %></li>
       <li><%= link_to 'Вернуться обратно', wishlist_path, id: 'to_wishlist', class: 'text-dark' %></li>

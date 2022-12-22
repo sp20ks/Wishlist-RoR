@@ -67,7 +67,7 @@ li {
     margin: 10px;
    }
 
-#links {
+.links {
     position: absolute;
     right: 0;
     border-left: solid black 5px;
@@ -81,4 +81,21 @@ li {
 
 #log_btn {
     width: 50%;
+}
+
+.users {
+    margin-left: 20%; 
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+#search-line {
+    position: fixed; /* Фиксированное положение */
+    right: 40px; /* Расстояние от правого края окна браузера */
+    top: 20%; /* Расстояние сверху */
+    padding: 10px; /* Поля вокруг текста */      
+}
+
+.cartocka {
+    background-color: #e3f2fd;
 }

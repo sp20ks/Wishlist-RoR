@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post '/users/edit', to: 'users#edit'
   post 'users/update'
   get '/users/edit', to: 'users#edit'
+  get '/users/show', to: 'users#show'
+  post '/users/show_by_login'
 
   get '/gifts/show', as: 'wishlist'
 
