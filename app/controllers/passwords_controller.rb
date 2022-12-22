@@ -15,13 +15,19 @@ class PasswordsController < ApplicationController
   end
 
   def reset
-    user = User.find_by_reset_password_token(params[:token])
-    return unless user.present?
-
-    if user.reset_password!(params[:password], params[:password_confirmation])
-      redirect_to home_path, notice: 'Пароль успешно изменен'
+    if user_signed_in?
+      if user.reset_password!(params[:password], params[:password_confirmation]) then redirect_to info_about_user_path, notice: 'Пароль успешно изменен'
+      else
+        redirect_to '/password/new_password', notice: user.errors.full_messages.split.join(' и ')
+      end
     else
-    redirect_to '/password/new_password?id=' + params[:token], notice: user.errors.full_messages.split.join(' и ')
+      user = User.find_by_reset_password_token(params[:token])
+      return unless user.present?
+  
+      if user.reset_password!(params[:password], params[:password_confirmation]) then redirect_to home_path, notice: 'Пароль успешно изменен'
+      else
+      redirect_to '/password/new_password?id=' + params[:token], notice: user.errors.full_messages.split.join(' и ')
+      end
     end
   end
 end

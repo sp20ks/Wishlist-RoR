@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'password/new_password', to: 'passwords#new_password'
   post 'password/forgot', to: 'passwords#forgot'
   post 'password/reset', to: 'passwords#reset'
-  
+  put 'password/update', to: 'passwords#update'
 
   resource :user, only: %i[destroy update]
   resources :users, only: %i[new create update destroy]

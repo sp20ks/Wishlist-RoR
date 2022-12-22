@@ -12,7 +12,7 @@
   <div id='links'>
     <ul>
       <li><%= link_to 'Редактировать данные', '/users/edit', class: 'text-dark' %></li>
-      <li><%= link_to 'Сбросить пароль', '', id: 'edit_password', class: 'text-dark' %></li>
+      <li><%= link_to 'Сбросить пароль', '/password/new_password', id: 'edit_password', class: 'text-dark' %></li>
       <li><%= link_to 'Вернуться обратно', wishlist_path, id: 'to_wishlist', class: 'text-dark' %></li>
       <li><%= button_to 'Удалить аккаунт', user_path, method: :delete, id: 'delete_p', class: 'btn btn-outline-danger' %></li>
     </ul>
