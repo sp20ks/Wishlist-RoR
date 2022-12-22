@@ -1,4 +1,4 @@
-<div class='div-form'>
+<div class='div-form animation-div' id='form-new-session'>
   <%= form_with url: session_path, class: 'my-form' do |form| %>
     <div class = 'form-group'>
       <%= form.label :login, 'Логин', id: 'label_log' %>
@@ -13,5 +13,5 @@
       <%= form.submit('Войти', id: 'log_btn',  class: 'btn btn-outline-dark') %>
     </div>
   <% end %>
-  <%= link_to 'Ещё нет аккаунта? Тогда регистрируйся :)', 'users/new', class: 'link-dark'%>
+  <%= link_to 'Ещё нет аккаунта? Тогда регистрируйся :)', '/users/new', class: 'link-dark'%>
 </div>

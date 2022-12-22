@@ -29,8 +29,7 @@ class UsersController < ApplicationController
       flash[:success] = 'Данные были успешно обновлены'
       redirect_to info_user_path
     else
-      flash[:warning] = @user.errors.full_messages.join(' и ')
-      redirect_to edit_path
+      redirect_to '/users/edit', notice: @user.errors.full_messages.join(' и ')
     end
   end
 
@@ -38,9 +37,5 @@ class UsersController < ApplicationController
     redirect_to home_path, notice: 'Аккаунт успешно удален. Приходите еще :(' if User.destroy(current_user.id)
   end
 
-  def show; end
-
-  def show_edit
-
-  end
+  #def show; end
 end

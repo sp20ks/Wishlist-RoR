@@ -1,5 +1,5 @@
 <div id='div-info' class='div-form'>
-  <div id='div-info-current-user'>
+  <div id='container-info'>
     <ul>
       <li>Имя: <%= current_user.f_name %></li>
       <li>Фамилия: <%= current_user.l_name %></li>
@@ -11,8 +11,7 @@
   </div>
   <div id='links'>
     <ul>
-      <li><%= link_to 'Редактировать данные', '/users/edit', class: 'text-dark' %></li>
-      <li><%= link_to 'Сбросить пароль', '/password/new_password', id: 'edit_password', class: 'text-dark' %></li>
+      <li><%= link_to 'Редактировать данные', '/users/edit', class: 'text-dark', data: {turbo_method: :post} %></li>
       <li><%= link_to 'Вернуться обратно', wishlist_path, id: 'to_wishlist', class: 'text-dark' %></li>
       <li><%= button_to 'Удалить аккаунт', user_path, method: :delete, id: 'delete_p', class: 'btn btn-outline-danger' %></li>
     </ul>

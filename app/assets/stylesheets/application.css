@@ -39,6 +39,9 @@ body {
     padding: 10px;
     border-radius: 20px;
     border: solid #e3f2fd 5px;
+}
+
+.animation-div {
     opacity:0; /*Элемент полностью прозрачный (невидимый)*/
     transition: 1s; /*Скорость перехода состояния элемента*/
     animation: show 2s 1; /* Указываем название анимации, её время и количество повторов*/
@@ -71,5 +74,11 @@ li {
 }
 
 #edit, #div-info {
-    font-size: 30px;  
+    height: 100%;
+    font-size: 20px;  
+}
+
+
+#log_btn {
+    width: 50%;
 }

@@ -18,4 +18,9 @@ module UsersHelper
       redirect_to new_us_path
     end
   end
+
+  def user_params_update
+    params.require(:user).permit(:f_name, :l_name, :login, :birth, :email, :password, :password_confirmation)
+  end
+
 end
