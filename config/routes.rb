@@ -9,13 +9,21 @@ Rails.application.routes.draw do
 
   get '/gifts/show', as: 'wishlist'
 
+  get 'password/index', to: 'passwords#index'
+  get 'password/new_password', to: 'passwords#new_password'
+  post 'password/forgot', to: 'passwords#forgot'
+  post 'password/reset', to: 'passwords#reset'
+  
+
   resource :user, only: %i[destroy update]
   resources :users, only: %i[new create update destroy]
   resources :gifts
+  resource :password, only: %i[update]
   resource :session, only: %i[new create destroy]
   resources :users do
     member do
       get :confirm_email
     end
   end
+
 end

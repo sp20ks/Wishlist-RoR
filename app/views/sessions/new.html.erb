@@ -9,8 +9,9 @@
       <%= form.password_field :password, class: 'form-control', id: 'pass' %>
     </div>
     <div class = 'form-group'>
-      <%= link_to 'Ещё нет аккаунта? Тогда регистрируйся :)', 'users/new', class: 'link-dark'%>
+      <%= link_to 'Забыл пароль', '/password/index', class: 'link-dark'%>
       <%= form.submit('Войти', id: 'log_btn',  class: 'btn btn-outline-dark') %>
     </div>
   <% end %>
+  <%= link_to 'Ещё нет аккаунта? Тогда регистрируйся :)', 'users/new', class: 'link-dark'%>
 </div>
