@@ -1,12 +1,15 @@
 <div id='user-login'>
-        <div class='card cartocka' style='width: 25em;margin: 5px;'>
-          <div class="card-body">
-            <h5 class="card-title"> <%= @user.login %></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><%= @user.f_name %> <%= @user.l_name %></h6>
-            <p class="card-text"><%= @user.birth %></p>
-            <%= link_to 'Добавить в друзья', '', class: 'card-link text-dark'%>
-          </div>
-        </div>
-    <%= link_to 'Обратно', '/users/show', class: 'card-link text-dark'%>
-
+  <% if @user.nil? %>
+    <h5>Пользователь с таким логином не найден</h5>
+  <% else %>
+    <div class='card cartocka' style='width: 25em;margin: 5px;'>
+    <div class="card-body">
+      <h5 class="card-title"> <%= @user.login %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= @user.f_name %> <%= @user.l_name %></h6>
+      <p class="card-text"><%= @user.birth %></p>
+      <%= link_to 'Добавить в друзья', '', class: 'card-link text-dark'%>
+    </div>
   </div>
+  <% end %>
+  <%= link_to 'Обратно', '/users/show', class: 'card-link text-dark'%>
+</div>
