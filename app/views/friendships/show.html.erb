@@ -7,8 +7,10 @@
             <h5 class="card-title"> <%= user.login %></h5>
             <h6 class="card-subtitle mb-2 text-muted"><%= user.f_name %> <%= user.l_name %></h6>
             <p class="card-text"><%= user.birth %></p>
-                <%= link_to 'Вишлист', '', class: 'card-link text-dark'%>
-                <%= link_to 'Удалить из друзей', '', class: 'card-link text-dark'%>
+            <div class='btn-group' style='text-align: center;'>
+                <%= button_to 'Вишлист','', class: 'btn btn-success btn-circle'%>
+                <%= button_to 'Удалить из друзей', friendship_path(id_friendship(current_user.id, user.id)), method: :delete, class: 'btn btn-danger btn-circle ',  style: 'margin-left:8px;'%>
+            </div>
           </div>
         </div>
     <%end%>

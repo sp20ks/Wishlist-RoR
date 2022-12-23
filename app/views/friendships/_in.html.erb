@@ -4,8 +4,10 @@
           <div class="card-body">
             <h5 class="card-title"> <%= user.login %></h5>
             <h6 class="card-subtitle mb-2 text-muted"><%= user.f_name %> <%= user.l_name %></h6>
-            <%= link_to 'Принять', '', class: 'card-link text-dark'%>
-            <%= link_to 'Отклонить', '', class: 'card-link text-dark'%>
+            <div class='btn-group' style='text-align: center;'>
+                 <%= button_to 'Принять',friendship_path(user.id), class: 'btn btn-success btn-circle'%>
+                <%= button_to 'Отклонить', friendship_path(id_friendship(user.id, current_user.id)), method: :delete, class: 'btn btn-danger btn-circle ',  style: 'margin-left:8px;'%>
+            </div>
           </div>
         </div>
     <%end%>

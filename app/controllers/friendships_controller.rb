@@ -23,11 +23,21 @@ class FriendshipsController < ApplicationController
     #Friendship.find_by(user_id: current_user.id, friend_id: params[:id]).delete
   end
 
-  def in
+  def accept
+    @friendship = Friendship.new do |rec|
+      rec.user_id = current_user.id
+      rec.friend_id = params[:id]
+    end
+    if @friendship.save!
+      redirect_to '/friendships/show'
+    else
+      redirect_to '/friendships/show', notice: @friendship.errors.full_messages.split.join(' и ')
+    end
   end
 
-  def out
-  end
+  def in; end
+
+  def out; end
 
   def delete_friendship; end
 end
