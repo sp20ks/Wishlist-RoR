@@ -4,7 +4,7 @@
 class Gift < ApplicationRecord
 
   belongs_to :user
-  belongs_to :owner, class_name: 'User'
+  #belongs_to :giver, class_name: 'User'
 
-  validates :user, presence: true
+  validates :user_id, :name, :link, presence: true
 end
