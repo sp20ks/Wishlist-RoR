@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'sessions#new', as: 'home'
 
+  resources :gifts
+
   get '/users/new', to: 'users#new'
   get '/users/info_about_user', as: 'info_user'
   post '/users/edit', to: 'users#edit'
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   post '/users/show_by_login'
 
   get '/gifts/show', as: 'wishlist'
-  get '/gifts/new'
+  #get '/gifts/new'
   post '/gifts/create'
 
   get 'password/index', to: 'passwords#index'
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
   put 'password/update', to: 'passwords#update'
 
   resource :user, only: %i[destroy update]
-  resources :gifts
+  #resource :gift, only: %i[destroy]
   resource :password, only: %i[update]
   resource :session, only: %i[new create destroy]
   resources :users, only: %i[new create update destroy] do

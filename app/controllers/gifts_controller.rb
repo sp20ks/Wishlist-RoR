@@ -2,6 +2,7 @@
 
 # controller
 class GiftsController < ApplicationController
+  before_action :set_gift, only: %i[destroy]
   include GiftsHelper
 
   def new; end
@@ -17,8 +18,6 @@ class GiftsController < ApplicationController
   end
 
   def destroy
-  end
-
-  def update
+    @gift.destroy
   end
 end
