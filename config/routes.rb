@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   post '/users/show_by_login'
   get '/users/:id', to: 'friendships#create'
 
+  delete '/users/show/:id', to: 'friendships#destroy'
+
+  #get '/frienships/:id', to: 'friendships#delete'
+
+
   get '/gifts/show', as: 'wishlist'
   #get '/gifts/new'
   post '/gifts/create'

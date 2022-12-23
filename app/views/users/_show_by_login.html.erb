@@ -7,8 +7,16 @@
       <h5 class="card-title"> <%= @user.login %></h5>
       <h6 class="card-subtitle mb-2 text-muted"><%= @user.f_name %> <%= @user.l_name %></h6>
       <p class="card-text"><%= @user.birth %></p>
-      <%= link_to 'Добавить в друзья', '', class: 'card-link text-dark'%>
-    </div>
+      <% unless current_user.id == @user.id %>
+        <% if !friends?(current_user.id, @user.id) && !request_present?(current_user.id, @user.id) %>
+          <%= link_to 'Добавить в друзья', user, class: 'card-link text-dark'%>
+        <% elsif friends?(current_user.id, @user.id) %>
+          <p class="card-text"> Уже у вас в друзьях</p>
+        <% end %>
+        <% else %>
+          <p class="card-text"> Это я</p>
+        <% end %>    
+        </div>
   </div>
   <% end %>
   <%= link_to 'Обратно', '/users/show', class: 'card-link text-dark'%>
