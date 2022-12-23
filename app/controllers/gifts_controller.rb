@@ -3,10 +3,12 @@
 # controller
 class GiftsController < ApplicationController
   include GiftsHelper
-  def show
-  end
 
   def new; end
+
+  def show
+    @gifts = Gift.where user_id: current_user.id
+  end
 
   def create
     @gift = Gift.new(gift_params)
