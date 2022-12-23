@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'friendships/new'
+  get 'friendships/destroy'
   root 'sessions#new', as: 'home'
 
   resources :gifts
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   get '/users/edit', to: 'users#edit'
   get '/users/show', to: 'users#show'
   post '/users/show_by_login'
+  get '/users/:id', to: 'friendships#create'
 
   get '/gifts/show', as: 'wishlist'
   #get '/gifts/new'
@@ -21,11 +24,15 @@ Rails.application.routes.draw do
   post 'password/reset', to: 'passwords#reset'
   put 'password/update', to: 'passwords#update'
 
-  resource :user, only: %i[destroy update]
+  #resource :user, only: %i[destroy]
+
+  resources :users
+  resources :gifts
+  resources :friendships
   #resource :gift, only: %i[destroy]
   resource :password, only: %i[update]
   resource :session, only: %i[new create destroy]
-  resources :users, only: %i[new create update destroy] do
+  resources :users do
     member do
       get :confirm_email
     end

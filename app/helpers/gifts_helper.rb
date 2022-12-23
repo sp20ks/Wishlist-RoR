@@ -5,7 +5,5 @@ module GiftsHelper
 
   def set_gift
     @gift = Gift.find(params[:id])
-    puts "-----------------------"
-    puts @gift.name
   end
 end
