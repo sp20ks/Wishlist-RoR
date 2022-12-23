@@ -99,3 +99,20 @@ li {
 .cartocka {
     background-color: #e3f2fd;
 }
+
+#modal {
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    top: 12%;
+    width: 400px;
+    word-break: break-word;
+    border-radius: 6px;
+    background: #e3f2fd;
+  }
+
+  #add_gift_icon {
+    position: fixed;
+    left: 40px;
+    top: 13%; 
+  }

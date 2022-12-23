@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/users/show_by_login'
 
   get '/gifts/show', as: 'wishlist'
+  post '/gifts/new'
 
   get 'password/index', to: 'passwords#index'
   get 'password/new_password', to: 'passwords#new_password'
