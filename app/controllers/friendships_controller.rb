@@ -2,7 +2,7 @@
 
 # class of controller
 class FriendshipsController < ApplicationController
-  #before_action :set_friendship, only: %i[destroy]
+  before_action :set_friendship, only: %i[destroy]
   include FriendshipsHelper
   def create
     @friendship = Friendship.new do |rec|
@@ -17,8 +17,16 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
+    @friendship.delete
+    redirect_to '/friendships/out'
     #Friendship.find_by(id: params[:id]).delete
-    Friendship.find_by(user_id: current_user.id, friend_id: params[:id]).delete
+    #Friendship.find_by(user_id: current_user.id, friend_id: params[:id]).delete
+  end
+
+  def in
+  end
+
+  def out
   end
 
   def delete_friendship; end

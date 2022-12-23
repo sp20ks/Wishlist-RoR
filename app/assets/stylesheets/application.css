@@ -122,3 +122,13 @@ li {
     margin-top: 1%;
     margin-bottom: 1%;
 }
+
+.links-left {
+    /* position: absolute;
+    left: 0;
+    border-right: solid black 5px; */
+    border-right: solid black 5px;
+    position: fixed;
+    left: 40px;
+    top: 45%; 
+}

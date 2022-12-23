@@ -1,0 +1,10 @@
+<h3 style='text-align:center;margin-bottom:20px;'>Исходящие заявки</h3>
+<% User.all.select { |u| request_present?(u.id, current_user.id) && is_users_request?( current_user.id, u.id) }.each do |user| %>     <%# не забыть убрать этот хардкод %>
+        <div class='card cartocka' style='width: 25em;margin: 5px;'>
+          <div class="card-body">
+            <h5 class="card-title"> <%= user.login %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= user.f_name %> <%= user.l_name %></h6>
+            <%= button_to  'Удалить запрос', friendship_path(id_friendship(current_user.id, user.id)), method: :delete,class: 'btn btn-danger btn-circle btn-sm'%>        
+          </div>
+        </div>
+    <%end%>

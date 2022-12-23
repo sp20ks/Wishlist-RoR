@@ -11,6 +11,10 @@ module FriendshipsHelper
     !Friendship.where(user_id: user1, friend_id: user2).empty?
   end
 
+  def id_friendship(user1, user2)
+    Friendship.find_by(user_id: user1, friend_id: user2).id
+  end
+
   def set_friendship
     @friendship = Friendship.find(params[:id])
   end

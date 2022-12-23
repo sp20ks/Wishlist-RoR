@@ -2,6 +2,7 @@
 
 # class of model
 class User < ApplicationRecord
+  include FriendshipsHelper
   has_secure_password
 
   has_many :friendships, dependent: :destroy

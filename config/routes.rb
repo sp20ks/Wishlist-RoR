@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  get 'friendships/new'
-  get 'friendships/destroy'
   root 'sessions#new', as: 'home'
 
   resources :gifts
+  resources :friendships, only: %i[destroy]
+  #delete '/friendships/:id', to: 'friendships#destroy', as: 'delete_req'
+  get '/friendships/show'
+  #get '/friendship/:id', to: 'friendships#destroy'
+
 
   get '/users/new', to: 'users#new'
   get '/users/info_about_user', as: 'info_user'
@@ -14,13 +17,10 @@ Rails.application.routes.draw do
   post '/users/show_by_login'
   get '/users/:id', to: 'friendships#create'
 
-  delete '/users/show/:id', to: 'friendships#destroy'
-
-  #get '/frienships/:id', to: 'friendships#delete'
-
+  post '/friendships/in', to: 'friendships#in'
+  post '/friendships/out', to: 'friendships#out'
 
   get '/gifts/show', as: 'wishlist'
-  #get '/gifts/new'
   post '/gifts/create'
 
   get 'password/index', to: 'passwords#index'
@@ -32,8 +32,6 @@ Rails.application.routes.draw do
   #resource :user, only: %i[destroy]
 
   resources :users
-  resources :gifts
-  resources :friendships
   #resource :gift, only: %i[destroy]
   resource :password, only: %i[update]
   resource :session, only: %i[new create destroy]
