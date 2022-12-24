@@ -14,10 +14,10 @@
       <nav class="navbar-expand-md navbar navbar-light border border-left-0 border-right-0 rounded-bottom" style="background-color: #e3f2fd;">
         <div class="container-fluid">
           <% if user_signed_in? %>
-            <%= link_to wishlist_path do %>
+            <%= link_to wishlist_path(current_user.id) do %>
               <%= image_tag 'gift_icon.svg', style: 'width:30px;height:30px;' %>
             <% end%>
-            <%= link_to 'Wishlist', wishlist_path, class: 'navbar-brand abs' %>               
+            <%= link_to 'Wishlist', wishlist_path(current_user.id), class: 'navbar-brand abs' %>               
           <% else %>
             <%= link_to home_path do %>
               <%= image_tag 'gift_icon.svg', style: 'width:30px;height:30px;' %>
@@ -35,6 +35,9 @@
                 </li>
                 <li class="nav-item">
                   <%= link_to 'Друзья', '/friendships/show', class: 'nav-link', id: 'profile'%>               
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'Я дарю', '/gifts/giver_presents', class: 'nav-link', id: 'profile'%>               
                 </li>
                 <li class="nav-item">
                   <%= link_to 'Личный кабинет', info_user_path, class: 'nav-link', id: 'profile'%>               
@@ -66,7 +69,7 @@
     <footer class="bg-light bd-footer text-center border border-left-0 border-right-0 rounded-top">
       <div class="text-center p-3" style="background-color: #e3f2fd;">
         Зачетная работа по языкам интернет-программирования
-        <a class="text-dark" href="#">Sp20ks</a>
+        <a class="text-dark" href='https://github.com/sp20ks'>Sp20ks</a>
       </div>
     </footer>
   </body>

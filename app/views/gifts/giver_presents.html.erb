@@ -1,0 +1,19 @@
+  <div id='gifts'>
+    <% if @gifts.empty? %>
+            <%= image_tag 'empty.png', id: 'empty-icon'%>
+    <% else %>
+      <% @gifts.each do |gift| %>
+          <div class='card cartocka' style='width: 25em;margin: 5px;'>
+            <div class="card-body">
+              <div  style='display:inline-block;  vertical-align: middle;width:70%;'>
+                <h5 class="card-title"> <%= gift.name %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= gift.description %></h6>
+                <h6 class="card-subtitle mb-2 text-muted"><%=link_to User.find(gift.user_id).login, wishlist_path(gift.user_id), class: 'card-link text-dark'%></h6>
+                <%= link_to 'Ссылка на товар', gift.link, class: 'card-link text-dark'%>
+              </div>
+            </div>
+          </div>
+    <%end%>
+    <% end %>
+  </div>
+</div>

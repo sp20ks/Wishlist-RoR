@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     if !!user && user.authenticate(params[:password])
       if user.email_confirmed
         session[:user_id] = user.id
-        redirect_to wishlist_path
+        redirect_to wishlist_path(current_user.id)
       else
         flash[:notice] = 'Подтвердите почту, указанную при регистрации'
       end

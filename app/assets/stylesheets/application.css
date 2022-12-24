@@ -130,5 +130,12 @@ li {
     border-right: solid black 5px;
     position: fixed;
     left: 40px;
-    top: 45%; 
+    top: 47%; 
+}
+
+#empty-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

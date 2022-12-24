@@ -12,7 +12,7 @@
   <div class='links'>
     <ul>
       <li><%= link_to 'Редактировать данные', '/users/edit', class: 'text-dark', data: {turbo_method: :post} %></li>
-      <li><%= link_to 'Вернуться обратно', wishlist_path, id: 'to_wishlist', class: 'text-dark' %></li>
+      <li><%= link_to 'Вернуться обратно', wishlist_path(current_user.id), id: 'to_wishlist', class: 'text-dark' %></li>
       <li><%= button_to 'Удалить аккаунт', '/users/destroy', method: :delete, id: 'delete_p', class: 'btn btn-outline-danger' %></li>
     </ul>
   </div>

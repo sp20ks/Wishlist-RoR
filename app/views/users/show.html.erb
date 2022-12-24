@@ -5,7 +5,10 @@
           <div class="card-body">
             <h5 class="card-title"> <%= user.login %></h5>
             <h6 class="card-subtitle mb-2 text-muted"><%= user.f_name %> <%= user.l_name %></h6>
-            <p class="card-text"><%= user.birth %></p>
+            <p class="card-text"> <%= user.birth %></p>
+            <%unless user.email_confirmed then%> 
+              <p class="card-text" style='color:red;'>Аккаунт не активен</p> 
+            <% end %>
             <% if current_user.id != user.id %>
               <% if !friends?(current_user.id, user.id) && !request_present?(current_user.id, user.id) %>
                 <%= link_to 'Добавить в друзья', user, class: 'card-link text-dark'%>

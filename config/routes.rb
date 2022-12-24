@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'sessions#new', as: 'home'
 
-  resources :gifts  
   #resource :friendship, only: %i[destroy]
   delete '/friendship/:id', to: 'friendships#destroy'
 
@@ -22,9 +21,13 @@ Rails.application.routes.draw do
 
 
 
-
-  get '/gifts/show', as: 'wishlist'
+  get '/gifts/set_giver/:id', to: 'gifts#set_giver', as: 'giver'
+  get '/gifts/remove_giver/:id', to: 'gifts#remove_giver', as: 'remove_giver'
+  get '/gifts/show/:id',to:'gifts#show' , as: 'wishlist'
+  get 'gifts/giver_presents'
   post '/gifts/create'
+  resources :gifts  
+
 
   get 'password/index', to: 'passwords#index'
   get 'password/new_password', to: 'passwords#new_password'

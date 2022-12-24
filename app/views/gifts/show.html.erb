@@ -1,27 +1,37 @@
-<%= link_to '/gifts/new', data: { turbo_frame: 'modal' } do %>
-  <%= image_tag 'add_gift.png', style: 'width:65px;height:65px;', id: 'add_gift_icon'%>
-<% end%>
-
+  <% if current_user.id == @user.id %>
+    <%= link_to '/gifts/new', data: { turbo_frame: 'modal' } do %>
+      <%= image_tag 'add_gift.png', style: 'width:70px;height:70px;', id: 'add_gift_icon'%>
+    <% end%>
+  <% end %>
 <div>
   <div id='gifts'>
-    <% @gifts.each do |gift| %>
-        <div class='card cartocka' style='width: 25em;margin: 5px;'>
-          <div class="card-body">
-            <div  style='display:inline-block;  vertical-align: middle;width:75%;'>
-              <h5 class="card-title"> <%= gift.name %></h5>
-              <h6 class="card-subtitle mb-2 text-muted"><%= gift.description %></h6>
-              <%= link_to 'Ссылка на товар', gift.link, class: 'card-link text-dark'%>
-            </div>
-
-            <div  style= 'display:inline-block;  vertical-align: middle;' >
-            <%= button_to gift, method: :delete, class: 'btn btn-danger btn-circle btn-sm' do %>
-                <%= image_tag 'icons8-trash-can.svg', style: 'width:40px;height:40px;' %>
-            <% end%>
+    <% if @gifts.empty? %>
+            <%= image_tag 'empty.png', id: 'empty-icon'%>
+    <% else %>
+      <% @gifts.each do |gift| %>
+          <div class='card cartocka' style='width: 25em;margin: 5px;'>
+            <div class="card-body">
+              <div  style='display:inline-block;  vertical-align: middle;width:70%;'>
+                <h5 class="card-title"> <%= gift.name %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= gift.description %></h6>
+                <%= link_to 'Ссылка на товар', gift.link, class: 'card-link text-dark'%>
+              </div>
+              <div  style= 'display:inline-block;  vertical-align: middle;' >
+                <% if gift.user_id == current_user.id %>
+                  <%= button_to gift, method: :delete, class: 'btn btn-danger btn-circle btn-sm' do %>
+                      <%= image_tag 'icons8-trash-can.svg', style: 'width:40px;height:40px;' %>
+                  <% end%>
+                <% elsif gift.giver_id.nil? %>
+                  <%= button_to 'Я дарю ', giver_path(gift.id), method: :get, class: 'btn btn-success btn-circle' %>
+                <% elsif gift.giver_id == current_user.id %>
+                  <%= button_to 'Не дарю', remove_giver_path(gift.id), method: :get, class: 'btn btn-danger btn-circle' %>
+                <% else %>
+                  <p>Этот подарок уже занят </p>
+                <% end %>
+              </div>
             </div>
           </div>
-
-        </div>
-
-  <%end%>
+    <%end%>
+    <% end %>
   </div>
 </div>

@@ -6,4 +6,8 @@ module GiftsHelper
   def set_gift
     @gift = Gift.find(params[:id])
   end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 end

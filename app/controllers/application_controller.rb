@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     return unless user_signed_in?
 
     flash[:warning] = 'Вы уже вошли в систему'
-    redirect_to wishlist_path
+    redirect_to wishlist_path(current_user.id)
   end
 
   helper_method :current_user, :user_signed_in?
