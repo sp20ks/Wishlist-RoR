@@ -11,11 +11,12 @@ module UsersHelper
     user = User.find_by_confirm_token(params[:id])
     if user
       user.email_activate
-      flash[:success] = 'Добро пожаловать! Вы успешно зарегистрированы. Войдите, чтобы продолжить'
-      redirect_to home_path
+      flash[:success] = 'Добро пожаловать! Вы успешно зарегистрированы'
+      session[:user_id] = user.id
+      redirect_to wishlist_path(user.id)
     else
       flash[:error] = 'Извините. Пользователь с таким логином не найден'
-      redirect_to new_us_path
+      redirect_to new_user_path
     end
   end
 

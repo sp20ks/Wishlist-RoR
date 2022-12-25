@@ -108,7 +108,7 @@ li {
     width: 400px;
     word-break: break-word;
     border-radius: 6px;
-    background: #e3f2fd;
+    background: #e3ebfd;
   }
 
   .add_gift_icon {
@@ -148,5 +148,5 @@ select {
 #form-type {
     position: fixed;
     right: 450px;
-    top: 13%; 
+    top: 20%; 
 }

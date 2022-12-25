@@ -2,7 +2,7 @@
             <%= image_tag 'empty.png', id: 'empty-icon'%>
     <% else %>
       <% @gifts.each do |gift| %>
-          <div class='card cartocka' style='width: 25em;margin: 5px;'>
+          <div class='card cartocka' style='width: 25em;margin: 5px;' id='container_<%= gift.id%>' onmouseover=change_color(id) onmouseout=change_color_back(id)>
             <div class="card-body">
               <div  style='display:inline-block;  vertical-align: middle;width:70%;'>
                 <h5 class="card-title"> <%= gift.name %></h5>
