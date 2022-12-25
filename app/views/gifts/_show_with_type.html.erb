@@ -1,18 +1,4 @@
-  <% if current_user.id == @user.id %>
-    <%= link_to '/gifts/new', data: { turbo_frame: 'modal' } do %>
-      <%= image_tag 'add_gift.png', style: 'width:70px;height:70px;', class: 'add_gift_icon'%>
-    <% end%>
-  <% end %>
-<div>
-<%= form_with class: 'my-form', id:'form-type',url: wishlist_with_type_path do |form| %>
-    <div class = 'form-group'>
-      <%= form.label :name, 'Тип вишлиста' %>
-      <%= form.select( :id_type, options_from_collection_for_select(WishlistType.all, :id, :name), class: 'btn btn-success dropdown-toggle form-control' ) %>
-      <%= form.submit 'Показать', id: 'add_btn',  class: 'btn btn-outline-dark', style: 'width: 50%;margin-left:25%;margin-top:5px;', data: {turbo_method: :post}%>
-    </div>
-<% end %>
-  <div id='gifts'>
-    <% if @gifts.empty? %>
+ <% if @gifts.empty? %>
             <%= image_tag 'empty.png', id: 'empty-icon'%>
     <% else %>
       <% @gifts.each do |gift| %>
@@ -40,5 +26,3 @@
           </div>
     <%end%>
     <% end %>
-  </div>
-</div>

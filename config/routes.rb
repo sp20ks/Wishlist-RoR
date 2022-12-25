@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/gifts/set_giver/:id', to: 'gifts#set_giver', as: 'giver'
   get '/gifts/remove_giver/:id', to: 'gifts#remove_giver', as: 'remove_giver'
   get '/gifts/show/:id',to:'gifts#show' , as: 'wishlist'
+  post '/gifts/show/:id',to:'gifts#show_with_type' , as: 'wishlist_with_type'
   get 'gifts/giver_presents'
   post '/gifts/create'
   resources :gifts  

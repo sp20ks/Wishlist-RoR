@@ -3,7 +3,7 @@
 # controller
 class GiftsController < ApplicationController
   before_action :set_gift, only: %i[destroy]
-  before_action :set_user, only: %i[show]
+  before_action :set_user, only: %i[show show_with_type]
   before_action :autorize
   include GiftsHelper
 
@@ -11,6 +11,10 @@ class GiftsController < ApplicationController
 
   def show
     @gifts = Gift.where user_id: @user.id
+  end
+
+  def show_with_type
+    @gifts = Gift.where user_id: @user.id, wishlist_type_id: params[:id_type]
   end
 
   def create
