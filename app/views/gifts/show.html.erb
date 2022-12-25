@@ -21,6 +21,7 @@
               <div  style='display:inline-block;  vertical-align: middle;width:70%;'>
                 <h5 class="card-title"> <%= gift.name %></h5>
                 <h6 class="card-subtitle mb-2 text-muted"><%= gift.description %></h6>
+                <h6 class="card-subtitle mb-2 text-muted">Тип вишлиста: <%= WishlistType.find(gift.wishlist_type_id).name %></h6>
                 <%= link_to 'Ссылка на товар', gift.link, class: 'card-link text-dark'%>
               </div>
               <div  style= 'display:inline-block;  vertical-align: middle;' >
