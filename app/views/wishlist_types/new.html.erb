@@ -1,0 +1,12 @@
+<%= turbo_frame_tag "modal" do %>
+  <%= form_with scope: :wishlist_type, class: 'my-form', url: wishlist_types_create_path, data: {turbo: false}  do |form| %>
+    <div class = 'form-group'>
+      <%= form.label :name, 'Название' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+    <div class = 'form-group'>
+      <%= link_to 'Закрыть', wishlist_types_show_path, class: 'link-dark'%>
+      <%= form.submit 'Добавить', id: 'add_btn',  class: 'btn btn-outline-dark', style: 'width: 50%;'%>
+    </div>
+  <% end %>
+<% end %>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'wishlist_types/create'
+  get 'wishlist_types/new'
+  get 'wishlist_types/destroy'
   root 'sessions#new', as: 'home'
 
   #resource :friendship, only: %i[destroy]
@@ -20,7 +23,6 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'friendships#create'
 
 
-
   get '/gifts/set_giver/:id', to: 'gifts#set_giver', as: 'giver'
   get '/gifts/remove_giver/:id', to: 'gifts#remove_giver', as: 'remove_giver'
   get '/gifts/show/:id',to:'gifts#show' , as: 'wishlist'
@@ -37,6 +39,11 @@ Rails.application.routes.draw do
 
   #resource :user, only: %i[destroy]
 
+  get '/wishlist_types/show', to: 'wishlist_types#show'
+  post '/wishlist_types/create', to: 'wishlist_types#create'
+
+  resources :wishlist_types
+  resource :wishlist_type, only: %i[destroy]
   resources :users
   #resource :gift, only: %i[destroy]
   resource :password, only: %i[update]

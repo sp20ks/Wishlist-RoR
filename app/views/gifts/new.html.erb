@@ -5,6 +5,10 @@
     <%= form.hidden_field :user_id, value: current_user.id %>
     <%= form.hidden_field :giver_id %>
     <div class = 'form-group'>
+      <%= form.label :name, 'Тип вишлиста' %>
+      <%= form.select( :wishlist_type_id, options_from_collection_for_select(WishlistType.all, :id, :name), class: 'btn btn-success dropdown-toggle form-control' ) %>
+    </div>
+    <div class = 'form-group'>
       <%= form.label :name, 'Название' %>
       <%= form.text_field :name, class: 'form-control' %>
     </div>
@@ -18,7 +22,7 @@
       <small id="emailHelp" class="form-text text-muted">Расскажите поподробнее о этом товаре. Хотите ли вы сами его купить или когда хотели бы получить в подарок</small>
     </div>
     <div class = 'form-group'>
-      <%= link_to 'Закрыть', '/gifts/show', class: 'link-dark'%>
+      <%= link_to 'Закрыть', wishlist_path(current_user.id), class: 'link-dark'%>
       <%= form.submit 'Добавить', id: 'add_btn',  class: 'btn btn-outline-dark', style: 'width: 50%;'%>
     </div>
   <% end %>

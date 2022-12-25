@@ -30,17 +30,22 @@
           <div class="navbar-collapse collapse" id="collapseNavbar">
             <ul class="navbar-nav ms-auto">
               <%if user_signed_in?%>
+                <% if current_user.admin %>
+                  <li class="nav-item">
+                    <%= link_to 'Управление', wishlist_types_show_path, class: 'nav-link'%>               
+                  </li>
+                <% end %>
                 <li class="nav-item">
-                  <%= link_to 'Все пользователи', '/users/show', class: 'nav-link', id: 'profile'%>               
+                  <%= link_to 'Все пользователи', '/users/show', class: 'nav-link'%>               
                 </li>
                 <li class="nav-item">
-                  <%= link_to 'Друзья', '/friendships/show', class: 'nav-link', id: 'profile'%>               
+                  <%= link_to 'Друзья', '/friendships/show', class: 'nav-link'%>               
                 </li>
                 <li class="nav-item">
-                  <%= link_to 'Я дарю', '/gifts/giver_presents', class: 'nav-link', id: 'profile'%>               
+                  <%= link_to 'Я дарю', '/gifts/giver_presents', class: 'nav-link'%>               
                 </li>
                 <li class="nav-item">
-                  <%= link_to 'Личный кабинет', info_user_path, class: 'nav-link', id: 'profile'%>               
+                  <%= link_to 'Личный кабинет', info_user_path, class: 'nav-link'%>               
                 </li>
                 <li class="nav-item">
                   <%= button_to 'Выход', session_path, method: :delete, class: 'btn btn-outline-dark', id: 'exit'%>               

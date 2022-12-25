@@ -1,4 +1,5 @@
 class PasswordsController < ApplicationController
+  before_action :no_autorize
   def index; end
 
   def new_password; end

@@ -3,6 +3,7 @@
 # controller
 class UsersController < ApplicationController
   include UsersHelper
+  before_action :autorize, only: %i[show edit info_about_user show_by_login] 
   #before_action :set_user, only: %i[destroy]
 
   def new; end

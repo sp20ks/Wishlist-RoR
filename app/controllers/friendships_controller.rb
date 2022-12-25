@@ -2,8 +2,9 @@
 
 # class of controller
 class FriendshipsController < ApplicationController
-  before_action :set_friendship, only: %i[destroy]
   include FriendshipsHelper
+  before_action :set_friendship, only: %i[destroy]
+  before_action :autorize
   def create
     @friendship = Friendship.new do |rec|
       rec.user_id = current_user.id

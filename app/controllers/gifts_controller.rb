@@ -4,6 +4,7 @@
 class GiftsController < ApplicationController
   before_action :set_gift, only: %i[destroy]
   before_action :set_user, only: %i[show]
+  before_action :autorize
   include GiftsHelper
 
   def new; end

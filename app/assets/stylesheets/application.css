@@ -111,7 +111,7 @@ li {
     background: #e3f2fd;
   }
 
-  #add_gift_icon {
+  .add_gift_icon {
     position: fixed;
     left: 40px;
     top: 13%; 
@@ -138,4 +138,9 @@ li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+select {
+    margin-left: 5%;
+    width: 50%;
 }
