@@ -7,5 +7,4 @@ class Friendship < ApplicationRecord
 
   validates :user_id, presence: true
   validates :friend_id, presence: true
-  #after_create_commit -> { broadcast_prepend_to "friendships", partial: "friendships/new", locals: { friendship: self }, target: "friendships" }
 end

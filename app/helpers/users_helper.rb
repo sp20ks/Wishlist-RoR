@@ -11,7 +11,7 @@ module UsersHelper
     user = User.find_by_confirm_token(params[:id])
     if user
       user.email_activate
-      flash[:success] = 'Добро пожаловать! Вы успешно зарегистрированы'
+      flash[:success] = t('welcome')
       session[:user_id] = user.id
       redirect_to wishlist_path(user.id)
     else
