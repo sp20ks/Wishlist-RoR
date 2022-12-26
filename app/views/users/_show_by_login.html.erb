@@ -1,6 +1,6 @@
 <div id='user-login'>
   <% if @user.nil? %>
-    <h5>Пользователь с таким логином не найден</h5>
+    <h5> <%= t('.err_find') %> </h5>
   <% else %>
     <div class='card cartocka' style='width: 25em;margin: 5px;'>
     <div class="card-body">
@@ -9,15 +9,15 @@
       <p class="card-text"><%= @user.birth %></p>
       <% unless current_user.id == @user.id %>
         <% if !friends?(current_user.id, @user.id) && !request_present?(current_user.id, @user.id) %>
-          <%= link_to 'Добавить в друзья', user, class: 'card-link text-dark'%>
+          <%= link_to t('.add_to_friends'), user, class: 'card-link text-dark'%>
         <% elsif friends?(current_user.id, @user.id) %>
-          <p class="card-text"> Уже у вас в друзьях</p>
+          <p class="card-text"> <%= t('.already_friends') %></p>
         <% end %>
         <% else %>
-          <p class="card-text"> Это я</p>
+          <p class="card-text"> <%= t('.me') %></p>
         <% end %>    
         </div>
   </div>
   <% end %>
-  <%= link_to 'Обратно', '/users/show', class: 'card-link text-dark'%>
+  <%= link_to t('.return'), users_show_path, class: 'card-link text-dark'%>
 </div>

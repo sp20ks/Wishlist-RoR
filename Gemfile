@@ -83,4 +83,6 @@ gem 'solargraph', group: :development
 
 gem 'faker'
 
+gem 'rails-i18n'
+
 gem 'figaro'

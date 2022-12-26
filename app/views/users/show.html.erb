@@ -7,25 +7,25 @@
             <h6 class="card-subtitle mb-2 text-muted"><%= user.f_name %> <%= user.l_name %></h6>
             <p class="card-text"> <%= user.birth %></p>
             <%unless user.email_confirmed then%> 
-              <p class="card-text" style='color:red;'>Аккаунт не активен</p> 
+              <p class="card-text" style='color:red;'><%= t('.acc') %></p> 
             <% end %>
             <% if current_user.id != user.id %>
               <% if !friends?(current_user.id, user.id) && !request_present?(current_user.id, user.id) %>
-                <%= link_to 'Добавить в друзья', user, class: 'card-link text-dark'%>
+                <%= link_to t('users.show_by_login.add_to_friends'), user, class: 'card-link text-dark'%>
               <% elsif friends?(current_user.id, user.id) %>
-                <p class="card-text"> Уже у вас в друзьях</p>
+                <p class="card-text"> <%= t('users.show_by_login.already_friends')%> </p>
               <% end %>
             <% else %>
-              <p class="card-text"> Это я</p>
+              <p class="card-text"> <%= t('users.show_by_login.me')%></p>
             <% end %>
           </div>
         </div>
     <%end%>
   </div>
   <div id='search-line'>
-    <%= form_with url: '/users/show_by_login', class: 'my-form' do |form| %>
+    <%= form_with url: users_show_by_login_path, class: 'my-form' do |form| %>
     <div class = 'form-group'>
-      <%= form.label :login, 'Логин', id: 'label_name' %>
+      <%= form.label :login, t('passwords.index.login'), id: 'label_name' %>
       <%= form.text_field :login, class: 'form-control', id: 'login' %>
     </div>
     <% end %>

@@ -26,13 +26,13 @@ class GiftsController < ApplicationController
   def set_giver
     @gift = Gift.find(params[:id])
     @gift.update(giver_id: current_user.id)
-    redirect_to '/gifts/show/' + @gift.user_id.to_s
+    redirect_to wishlist_path(@gift.user_id.to_s)
   end
 
   def remove_giver
     @gift = Gift.find(params[:id])
     @gift.update(giver_id: nil)
-    redirect_to '/gifts/show/' + @gift.user_id.to_s
+    redirect_to wishlist_path(@gift.user_id.to_s)
   end
 
   def giver_presents
@@ -41,5 +41,6 @@ class GiftsController < ApplicationController
 
   def destroy
     @gift.destroy
+    @gifts = Gift.where user_id: @gift.user_id
   end
 end

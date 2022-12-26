@@ -1,4 +1,4 @@
-<%= button_to 'Добавить тип вишлиста',  wishlist_types_new_path, data: { turbo_frame: 'modal' }, method: :get, class: 'btn btn-outline-dark add_gift_icon' %>
+<%= button_to t('.add'),  wishlist_types_new_path, data: { turbo_frame: 'modal' }, method: :get, class: 'btn btn-outline-dark add_gift_icon' %>
 
 <% @types.each do |type| %>
   <div class='card cartocka' style='width: 25em;margin: 10px; margin-left: 20%;'>

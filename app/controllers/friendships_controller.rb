@@ -11,17 +11,15 @@ class FriendshipsController < ApplicationController
       rec.friend_id = params[:id]
     end
     if @friendship.save!
-      redirect_to '/users/show', notice: 'Запрос отправлен успешно'
+      redirect_to users_show_path, notice: t('.msg_request')
     else
-      redirect_to '/users/show', notice: @friendship.errors.full_messages.split.join(' и ')
+      redirect_to users_show_path, notice: @friendship.errors.full_messages.split.join('. ')
     end
   end
 
   def destroy
     @friendship.delete
-    redirect_to '/friendships/out'
-    #Friendship.find_by(id: params[:id]).delete
-    #Friendship.find_by(user_id: current_user.id, friend_id: params[:id]).delete
+    redirect_to friendships_out_path
   end
 
   def accept
@@ -30,9 +28,9 @@ class FriendshipsController < ApplicationController
       rec.friend_id = params[:id]
     end
     if @friendship.save!
-      redirect_to '/friendships/show'
+      redirect_to friendships_show_path
     else
-      redirect_to '/friendships/show', notice: @friendship.errors.full_messages.split.join(' и ')
+      redirect_to friendships_show_path, notice: @friendship.errors.full_messages.split.join('. ')
     end
   end
 

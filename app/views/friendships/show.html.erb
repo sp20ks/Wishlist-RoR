@@ -1,6 +1,6 @@
 <div id='div-info' class='div-form'>
     <div id='friends'>
-        <h3 style='text-align:center;margin-bottom:20px;'>Друзья</h3>
+        <h3 style='text-align:center;margin-bottom:20px;'><%= t('application.friends') %></h3>
         <% User.all.select { |u| friends? u.id, current_user.id }.each do |user| %>     <%# не забыть убрать этот хардкод %>
         <div class='card cartocka' style='width: 25em;margin: 5px;'>
           <div class="card-body">
@@ -8,8 +8,8 @@
             <h6 class="card-subtitle mb-2 text-muted"><%= user.f_name %> <%= user.l_name %></h6>
             <p class="card-text"><%= user.birth %></p>
             <div class='btn-group' style='text-align: center;'>
-                <%= button_to 'Вишлист', wishlist_path(user), method: :get, class: 'btn btn-success btn-circle'%>
-                <%= button_to 'Удалить из друзей', friendship_path(id_friendship(current_user.id, user.id)), method: :delete, class: 'btn btn-danger btn-circle ',  style: 'margin-left:8px;'%>
+                <%= button_to t('application.home'), wishlist_path(user), method: :get, class: 'btn btn-success btn-circle'%>
+                <%= button_to t('.del_friend'), friendship_path(id_friendship(current_user.id, user.id)), method: :delete, class: 'btn btn-danger btn-circle ',  style: 'margin-left:8px;'%>
             </div>
           </div>
         </div>
@@ -17,9 +17,9 @@
     </div>
     <div class='links-left'>
         <ul>
-            <li><%= link_to 'Друзья', '/friendships/show', class: 'text-dark' %></li>
-            <li><%= link_to 'Входящие заявки', '/friendships/in', class: 'text-dark', data: {turbo_method: :post} %></li>
-            <li><%= link_to 'Исходящие заявки', '/friendships/out', class: 'text-dark',  data: {turbo_method: :post} %></li>
+            <li><%= link_to t('application.friends'), friendships_show_path, class: 'text-dark' %></li>
+            <li><%= link_to t('friendships.in.in'), friendships_in_path, class: 'text-dark', data: {turbo_method: :post} %></li>
+            <li><%= link_to t('friendships.out.out'), friendships_out_path, class: 'text-dark',  data: {turbo_method: :post} %></li>
         </ul>
     </div>
 </div>

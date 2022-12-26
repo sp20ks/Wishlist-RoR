@@ -1,10 +1,11 @@
-<% Gift.all.each do |gift| %>
-<div class='card cartocka' style='width: 25em;margin: 5px;'>
+<% @gifts.each do |gift| %>
+          <div class='card cartocka' style='width: 25em;margin: 5px;' id='container_<%= gift.id%>' onmouseover=change_color(id) onmouseout=change_color_back(id)>
           <div class="card-body">
             <div  style='display:inline-block;  vertical-align: middle;'>
               <h5 class="card-title"> <%= gift.name %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= t('.type_wishlist') %> <%= WishlistType.find(gift.wishlist_type_id).name %></h6>
               <h6 class="card-subtitle mb-2 text-muted"><%= gift.description %></h6>
-              <%= link_to 'Ссылка на товар', gift.link, class: 'card-link text-dark'%>
+              <%= link_to t('.link_gift'), gift.link, class: 'card-link text-dark'%>
             </div>
             <div  style= 'display:inline-block;  vertical-align: middle;margin-left: 50%;' >
             <%= button_to gift, method: :delete, class: 'btn btn-danger btn-circle btn-sm' do %>

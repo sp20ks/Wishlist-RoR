@@ -17,12 +17,12 @@
             <%= link_to wishlist_path(current_user.id) do %>
               <%= image_tag 'gift_icon.svg', style: 'width:30px;height:30px;' %>
             <% end%>
-            <%= link_to 'Wishlist', wishlist_path(current_user.id), class: 'navbar-brand abs' %>               
+            <%= link_to t('application.home'), wishlist_path(current_user.id), class: 'navbar-brand abs' %>               
           <% else %>
             <%= link_to home_path do %>
               <%= image_tag 'gift_icon.svg', style: 'width:30px;height:30px;' %>
             <% end%>
-            <%= link_to 'Wishlist', home_path, class: 'navbar-brand abs' %>               
+            <%= link_to t('application.home'), home_path, class: 'navbar-brand abs' %>               
           <% end %>
           <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -32,29 +32,32 @@
               <%if user_signed_in?%>
                 <% if current_user.admin %>
                   <li class="nav-item">
-                    <%= link_to 'Управление', wishlist_types_show_path, class: 'nav-link'%>               
+                    <%= link_to t('application.manage'), wishlist_types_show_path, class: 'nav-link'%>               
                   </li>
                 <% end %>
                 <li class="nav-item">
-                  <%= link_to 'Все пользователи', '/users/show', class: 'nav-link'%>               
+                  <%= link_to t('application.users'), users_show_path, class: 'nav-link'%>               
                 </li>
                 <li class="nav-item">
-                  <%= link_to 'Друзья', '/friendships/show', class: 'nav-link'%>               
+                  <%= link_to t('application.friends'), friendships_show_path, class: 'nav-link'%>               
                 </li>
                 <li class="nav-item">
-                  <%= link_to 'Я дарю', '/gifts/giver_presents', class: 'nav-link'%>               
+                  <%= link_to t('application.i_give'), gifts_giver_presents_path, class: 'nav-link'%>               
                 </li>
                 <li class="nav-item">
-                  <%= link_to 'Личный кабинет', info_user_path, class: 'nav-link'%>               
+                  <%= link_to t('application.account'), info_user_path, class: 'nav-link'%>               
                 </li>
                 <li class="nav-item">
-                  <%= button_to 'Выход', session_path, method: :delete, class: 'btn btn-outline-dark', id: 'exit'%>               
-                </li>
-              <%else%>
-                <li class="nav-item">
-                  <%= link_to 'О проекте','', class: 'nav-link', id: 'about'%>               
+                  <%= button_to t('application.exit'), session_path, method: :delete, class: 'btn btn-outline-dark', id: 'exit'%>               
                 </li>
               <%end%>
+              <li  class="nav-item">
+                <% if I18n.locale == :ru %>
+                  <%= link_to "RU", { locale: 'en' }, class: "local nav-link" %>
+                <% else %>
+                  <%= link_to "ENG", { locale: 'ru' } , class: "local nav-link"%>
+                <%end%>
+              </li>
             </ul>
           </div>
         </div>
@@ -73,7 +76,7 @@
 
     <footer class="bg-light bd-footer text-center border border-left-0 border-right-0 rounded-top">
       <div class="text-center p-3" style="background-color: #e3f2fd;">
-        Зачетная работа по языкам интернет-программирования
+        <%=t('application.footer')%>
         <a class="text-dark" href='https://github.com/sp20ks'>Sp20ks</a>
       </div>
     </footer>

@@ -9,25 +9,25 @@ class PasswordsController < ApplicationController
     if user.present? && user.email_confirmed
       user.generate_password_token!
       PasswordMailer.forgot_password(user).deliver
-      redirect_to '/password/index', notice: 'На указанную при регистрации почту выслано письмо'
+      redirect_to password_index_path, notice: t('.email_send')
     else
-      redirect_to home_path, notice: 'Не существует аккаутна с таким логином'
+      redirect_to home_path, notice: t('.email_err')
     end
   end
 
   def reset
     if user_signed_in?
-      if user.reset_password!(params[:password], params[:password_confirmation]) then redirect_to info_about_user_path, notice: 'Пароль успешно изменен'
+      if user.reset_password!(params[:password], params[:password_confirmation]) then redirect_to info_about_user_path, notice: t('.msg_success')
       else
-        redirect_to '/password/new_password', notice: user.errors.full_messages.split.join(' и ')
+        redirect_to password_new_password_path, notice: user.errors.full_messages.split.join('. ')
       end
     else
       user = User.find_by_reset_password_token(params[:token])
       return unless user.present?
   
-      if user.reset_password!(params[:password], params[:password_confirmation]) then redirect_to home_path, notice: 'Пароль успешно изменен'
+      if user.reset_password!(params[:password], params[:password_confirmation]) then redirect_to home_path, notice:t('.msg_success')
       else
-      redirect_to '/password/new_password?id=' + params[:token], notice: user.errors.full_messages.split.join(' и ')
+      redirect_to password_new_password_path(params[:token]), notice: user.errors.full_messages.split.join('. ')
       end
     end
   end

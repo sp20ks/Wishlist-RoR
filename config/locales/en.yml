@@ -1,33 +1,121 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  application:
+    autorize: 
+      msg_auth: 'You are not logged in'
+    no_autorize:
+      msg_no_auth: 'You are already logged in'
+    home: 'Wishlist'
+    manage: 'Management'
+    users: 'All users'
+    friends: 'Friends'
+    i_give: 'I will give'
+    i_d_give: 'I will not give'
+    account: 'Account'
+    exit: 'Exit'
+    footer: 'Final work on Internet programming languages'
+  friendships:
+    create:
+      msg_request: 'The request was sent successfully'
+    in:
+      in: 'Incoming requests'
+      accept: 'Accept'
+      reject: 'Reject'
+    out:
+      out: 'Outgoing requests'
+      del_req: 'Delete request'
+    show:
+      del_friend: 'Remove from friends'
+  gifts:
+    destroy:
+      link_gift: 'Product link'
+      type_wishlist: 'Wishlist type:'
+    show_with_type:
+      taken: 'This gift is already taken'
+    new:
+      name: 'Name'
+      label_desc: 'Description'
+      desc: 'Tell us more about this product. Do you want to buy it yourself or when would you like to receive it as a gift'
+      close: 'Close'
+      add: 'Add'
+    show:
+      show: 'Show'
+  passwords:
+    forgot:
+      email_send: 'A letter has been sent to the email address specified during registration'
+      email_err: 'There is no account with this username'
+    reset:
+      msg_success: 'Password changed successfully'
+    index:
+      login: 'Login'
+      i_rememb: 'I remembered'
+      email_send: 'Send email'
+    new_password:
+      password: 'Password'
+      rep_password: 'Repeat password'
+      reset: 'Reset password'
+  sessions:
+    create:
+      confirm_email: 'Come back and confirm the email specified during registration'
+      try_again: 'Try again. Incorrect password or email'
+    destroy:
+      come: 'Come again :)'
+    new:
+      forgot: 'I forgot my password'
+      enter: 'Enter'
+      no_account: "No account yet? Let's register :)"
+  users:
+    create:
+      send_email: 'A letter has been sent to the specified email address. Please confirm your email.'
+      update_data: 'The data has been successfully updated'
+      delete_acc: 'The account was successfully deleted. Come again :('
+    edit:
+      name: 'First name'
+      last_name: 'Last name'
+      birth: 'Birth'
+      upd_data: 'Update data'
+    show_by_login:
+      err_find: 'A user with this username was not found'
+      add_to_friends: 'Add to Friends'
+      already_friends: 'Already in your friends'
+      me: 'This is me'
+    info_about_user:
+      email: 'Email'
+      date_reg: 'Date of registration'
+      edit_data: 'Edit Data'
+      return: 'Go back'
+      del: 'Delete Account'
+    new: 
+      have_acc: 'I have an account'
+      reg: 'Sign up'
+      tell: "We won't tell anyone."
+    show:
+      acc: 'The account is not active' 
+  wishlist_types:
+    new:
+      name: 'Name'
+      close: 'Close'
+      add: 'Add'
+    show:
+      add: 'Add a Wishlist type'
+  mailer:
+    forgot_password: 
+      hello: 'Hello'
+      link: 'To reset your password, follow the link below.'
+      reset: 'Reset Password'
+  activerecord:
+    attributes:
+      gift:
+        name: 'Name'
+        link: 'Link'
+        description: 'Description'
+      user:
+        f_name: 'First name'
+        l_name: 'Last name'
+        login: 'Login'
+        email: 'Email'
+        password_digest: 'Password'
+        password: 'Password'
+        password_confirmation: 'Confirmation password'
+        msg_error: 'The password must have at least uppercase, uppercase letters, a number and have a length of more than 8 characters'
+  en: 'English'
+  ru: 'Russian'

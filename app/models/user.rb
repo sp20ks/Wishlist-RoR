@@ -16,12 +16,11 @@ class User < ApplicationRecord
   validates :login, presence: true, uniqueness: true
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :login, presence: true, uniqueness: true
-  validates :f_name, presence: true, format: { with: /\A[a-zа-яА-ЯA-Z]+\z/, message: 'Имя может содержать только буквы' }
-  validates :l_name, presence: true, format: { with: /\A[a-zа-яА-ЯA-Z]+\z/, message: 'Фамилия может содержать только буквы' }
-  validates :password_confirmation, presence: { message: 'не может быть пустым' }
-  validates :password, confirmation: { message: 'Пароли не совпадают' }
-  validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*[0-9]).{8,}\z/, message: 'Пароль должен иметь минимум прописную, заглавную буквы, цифру и иметь длину больше 8 символов' }
-
+  validates :f_name, presence: true, format: { with: /\A[a-zа-яА-ЯA-Z]+\z/ }
+  validates :l_name, presence: true, format: { with: /\A[a-zа-яА-ЯA-Z]+\z/ }
+  validates :password_confirmation, presence: true
+  validates :password, confirmation: true
+  validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*[0-9]).{8,}\z/, message: I18n.t('activerecord.attributes.user.msg_error')}
   def email_activate
     self.email_confirmed = true
     self.confirm_token = nil

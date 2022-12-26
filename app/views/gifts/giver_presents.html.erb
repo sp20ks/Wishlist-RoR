@@ -9,7 +9,7 @@
                 <h5 class="card-title"> <%= gift.name %></h5>
                 <h6 class="card-subtitle mb-2 text-muted"><%= gift.description %></h6>
                 <h6 class="card-subtitle mb-2 text-muted"><%=link_to User.find(gift.user_id).login, wishlist_path(gift.user_id), class: 'card-link text-dark'%></h6>
-                <%= link_to 'Ссылка на товар', gift.link, class: 'card-link text-dark'%>
+                <%= link_to t('gifts.destroy.link_gift'), gift.link, class: 'card-link text-dark'%>
               </div>
             </div>
           </div>

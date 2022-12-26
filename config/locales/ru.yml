@@ -1,0 +1,122 @@
+ru:
+  application:
+    autorize: 
+      msg_auth: 'Вы не вошли в систему'
+    no_autorize:
+      msg_no_auth: 'Вы уже вошли в систему'
+    home: 'Вишлист'
+    manage: 'Управление'
+    users: 'Все пользователи'
+    friends: 'Друзья'
+    i_give: 'Я дарю '
+    i_d_give: 'Не дарю'
+    account: 'Личный кабинет'
+    exit: 'Выход'
+    footer: 'Зачетная работа по языкам интернет-программирования'
+  friendships:
+    create:
+      msg_request: 'Запрос отправлен успешно'
+    in:
+      in: 'Входящие заявки'
+      accept: 'Принять'
+      reject: 'Отклонить'
+    out:
+      out: 'Исходящие заявки'
+      del_req: 'Удалить запрос'
+    show:
+      del_friend: 'Удалить из друзей'
+  gifts:
+    destroy:
+      link_gift: 'Ссылка на товар'
+      type_wishlist: 'Тип вишлиста:'
+    show_with_type:
+      taken: 'Этот подарок уже занят'
+    new:
+      name: 'Название'
+      label_desc: 'Описание'
+      desc: 'Расскажите поподробнее о этом товаре. Хотите ли вы сами его купить или когда хотели бы получить в подарок'
+      close: 'Закрыть'
+      add: 'Добавить'
+    show:
+      show: 'Показать'
+  passwords:
+    forgot:
+      email_send: 'На указанную при регистрации почту выслано письмо'
+      email_err: 'Не существует аккаунnа с таким логином'
+    reset:
+      msg_success: 'Пароль успешно изменен'
+    index:
+      login: 'Логин'
+      i_rememb: 'Я вспомнил'
+      email_send: 'Отправить email'
+    new_password:
+      password: 'Пароль'
+      rep_password: 'Повторите пароль'
+      reset: 'Сбросить пароль'
+  sessions:
+    create:
+      confirm_email: 'Подтвердите почту, указанную при регистрации'
+      try_again: 'Попробуйте еще раз. Некорректный пароль или почта'
+    destroy:
+      come: 'Приходите еще :)'
+    new:
+      forgot: 'Я забыл пароль'
+      enter: 'Войти'
+      no_account: 'Ещё нет аккаунта? Тогда регистрируйся :)'
+  users:
+    create:
+      send_email: 'На указанную почту выслано письмо. Подтвердите почту, пожалуйста.'
+      update_data: 'Данные были успешно обновлены'
+      delete_acc: 'Аккаунт успешно удален. Приходите еще :('
+    edit:
+      name: 'Имя'
+      last_name: 'Фамилия'
+      birth: 'День рождения'
+      upd_data: 'Изменить данные'
+    show_by_login:
+      err_find: 'Пользователь с таким логином не найден'
+      add_to_friends: 'Добавить в друзья'
+      already_friends: 'Уже у вас в друзьях'
+      me: 'Это я'
+    info_about_user:
+      email: 'Почта'
+      date_reg: 'Дата регистрации'
+      edit_data: 'Редактировать данные'
+      return: 'Вернуться обратно'
+      del: 'Удалить аккаунт'
+    new: 
+      have_acc: 'У меня есть аккаунт'
+      reg: 'Зарегистрироваться'
+      tell: "Мы никому не расскажем."
+    show:
+      acc: 'Аккаунт не активен'
+  wishlist_types:
+    new:
+      name: 'Название'
+      close: 'Закрыть'
+      add: 'Добавить'
+    show:
+      add: 'Добавить тип вишлиста'
+  mailer:
+    forgot_password: 
+      hello: 'Привет'
+      link: 'Для сброса пароля перейдите по ссылке ниже.'
+      reset: 'Сбросить пароль'
+  activerecord:
+    attributes:
+      gift:
+        name: 'Название'
+        link: 'Ссылка'
+        description: 'Описание'
+      user:
+        f_name: 'Имя'
+        l_name: 'Фамилия'
+        login: 'Логин'
+        email: 'Почта'
+        password_digest: 'Пароль'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        msg_error: 'Пароль должен иметь минимум прописную, заглавную буквы, цифру и иметь длину больше 8 символов'
+  en: 'Английский'
+  ru: 'Русский'
+

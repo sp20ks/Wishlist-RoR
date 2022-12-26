@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       redirect_to new_user_path
     else
       UserMailer.registration_confirmation(@user).deliver
-      flash[:success] = 'На указанную почту выслано письмо. Подтвердите почту, пожалуйста.'
+      flash[:success] = t('.send_email')
       redirect_to home_path
     end
   end
@@ -27,15 +27,15 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      flash[:success] = 'Данные были успешно обновлены'
+      flash[:success] = t('.update_data')
       redirect_to info_user_path
     else
-      redirect_to '/users/edit', notice: @user.errors.full_messages.join(' и ')
+      redirect_to users/edit_path, notice: @user.errors.full_messages.join('. ')
     end
   end
 
   def destroy
-    redirect_to home_path, notice: 'Аккаунт успешно удален. Приходите еще :(' if User.destroy(current_user.id)
+    redirect_to home_path, notice: t('.delete_acc') if User.destroy(current_user.id)
   end
 
   def show

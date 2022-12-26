@@ -14,17 +14,17 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         redirect_to wishlist_path(current_user.id)
       else
-        flash[:notice] = 'Подтвердите почту, указанную при регистрации'
+        flash[:notice] = t('.confirm_email')
       end
     else 
-      flash[:notice] = 'Попробуйте еще раз. Некорректный пароль или почта'
+      flash[:notice] = t('.try_again')
       redirect_to home_path
     end
   end
 
   def destroy
     session.delete :user_id
-    flash[:success] = 'Приходите еще :)'
+    flash[:success] = t('.come')
     redirect_to home_path
   end
 end

@@ -7,7 +7,7 @@
               <div  style='display:inline-block;  vertical-align: middle;width:70%;'>
                 <h5 class="card-title"> <%= gift.name %></h5>
                 <h6 class="card-subtitle mb-2 text-muted"><%= gift.description %></h6>
-                <%= link_to 'Ссылка на товар', gift.link, class: 'card-link text-dark'%>
+                <%= link_to t('gifts.destroy.link_gift'), gift.link, class: 'card-link text-dark'%>
               </div>
               <div  style= 'display:inline-block;  vertical-align: middle;' >
                 <% if gift.user_id == current_user.id %>
@@ -15,11 +15,11 @@
                       <%= image_tag 'icons8-trash-can.svg', style: 'width:40px;height:40px;' %>
                   <% end%>
                 <% elsif gift.giver_id.nil? %>
-                  <%= button_to 'Я дарю ', giver_path(gift.id), method: :get, class: 'btn btn-success btn-circle' %>
+                  <%= button_to t('application.i_give'), giver_path(gift.id), method: :get, class: 'btn btn-success btn-circle' %>
                 <% elsif gift.giver_id == current_user.id %>
-                  <%= button_to 'Не дарю', remove_giver_path(gift.id), method: :get, class: 'btn btn-danger btn-circle' %>
+                  <%= button_to t('application.i_d_give'), remove_giver_path(gift.id), method: :get, class: 'btn btn-danger btn-circle' %>
                 <% else %>
-                  <p>Этот подарок уже занят </p>
+                  <p><%= t('.taken') %></p>
                 <% end %>
               </div>
             </div>

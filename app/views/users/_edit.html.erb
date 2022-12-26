@@ -1,32 +1,32 @@
 <div id='edit' class='div-form'>
   <div class='div-form' id='edit-user-form'>
-    <%= form_with scope: :user, class: 'my-form', url: '/users/update' do |form| %>
+    <%= form_with scope: :user, class: 'my-form', url: users_update_path do |form| %>
       <div class = 'form-group'>
-        <%= form.label :f_name, 'Имя', id: 'label_name' %>
+        <%= form.label :f_name, t('.name'), id: 'label_name' %>
         <%= form.text_field :f_name, class: 'form-control', id: 'name' %>
       </div>
       <div class = 'form-group'>
-        <%= form.label :l_name, 'Фамилия', id: 'label_l_name' %>
+        <%= form.label :l_name, t('.last_name'), id: 'label_l_name' %>
         <%= form.text_field :l_name, class: 'form-control', id: 'l_name' %>
       </div>
       <div class = 'form-group'>
-        <%= form.label :login, 'Логин', id: 'label_log' %>
+        <%= form.label :login, t('passwords.index.login'), id: 'label_log' %>
         <%= form.text_field :login, class: 'form-control', id: 'log' %>
       </div>
       <div class = 'form-group'>
-        <%= form.label :birth, 'День рождения', id: 'label_b' %>
+        <%= form.label :birth, t('.birth'), id: 'label_b' %>
         <%= form.text_field :birth, class: 'form-control', id: 'birth' %>
       </div>
       <div class = 'form-group'>
-        <%= form.label :pass, 'Пароль', id: 'label_pass' %>
+        <%= form.label :pass, t('passwords.new_password.password'), id: 'label_pass' %>
         <%= form.password_field :password, class: 'form-control', id: 'pass' %>
       </div>
       <div class = 'form-group'>
-        <%= form.label :pass_c, 'Повторите пароль', id: 'label_pass_c' %>
+        <%= form.label :pass_c, t('passwords.new_password.rep_password'), id: 'label_pass_c' %>
         <%= form.password_field :password_confirmation, class: 'form-control', id: 'pass_c' %>
       </div>
       <div class = 'form-group'>
-        <%= form.submit('Изменить данные', id: 'update_btn',  class: 'btn btn-outline-dark') %>
+        <%= form.submit(t('.upd_data'), id: 'update_btn',  class: 'btn btn-outline-dark') %>
       </div>
     <% end %>
   </div>
