@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/users/confirm_email/:id', to: 'users#confirm_email', as: 'confirm_email_user'
+
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
     get '/wishlist_types/create'
     get '/wishlist_types/new'
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
     post '/friendships/out', to: 'friendships#out'
 
     post '/friendships/:id', to: 'friendships#accept'
+
     get '/users/new', to: 'users#new'
     get '/users/info_about_user', as: 'info_user'
     post '/users/edit', to: 'users#edit'

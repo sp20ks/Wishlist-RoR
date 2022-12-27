@@ -1,6 +1,7 @@
 <div id='div-info' class='div-form'>
+
     <div id='friends'>
-        <h3 style='text-align:center;margin-bottom:20px;'><%= t('application.friends') %></h3>
+                <h3 style='text-align:center;margin-bottom:20px;'><%= t('application.friends') %></h3>
         <% User.all.select { |u| friends? u.id, current_user.id }.each do |user| %>     <%# не забыть убрать этот хардкод %>
         <div class='card cartocka' style='width: 25em;margin: 5px;'>
           <div class="card-body">
@@ -17,9 +18,9 @@
     </div>
     <div class='links-left'>
         <ul>
-            <li><%= link_to t('application.friends'), friendships_show_path, class: 'text-dark' %></li>
-            <li><%= link_to t('friendships.in.in'), friendships_in_path, class: 'text-dark', data: {turbo_method: :post} %></li>
-            <li><%= link_to t('friendships.out.out'), friendships_out_path, class: 'text-dark',  data: {turbo_method: :post} %></li>
+            <li><%= link_to t('application.friends'), friendships_show_path, class: 'text-dark', id: 'show_all' %></li>
+            <li><%= link_to t('friendships.in.in'), friendships_in_path, class: 'text-dark', data: {turbo_method: :post}, id: 'in_link'%></li>
+            <li><%= link_to t('friendships.out.out'), friendships_out_path, class: 'text-dark',  data: {turbo_method: :post}, id: 'out_link' %></li>
         </ul>
     </div>
 </div>

@@ -3,4 +3,5 @@
 <p>
   Спасибо за регистрацию. Чтобы продолжить, пройди по ссылке ниже :)
   <%= link_to 'Подвердить', confirm_email_user_url(@user.confirm_token, email: @user.email) %>
+  <%# <%= link_to 'Подвердить', 'http://localhost:3000/users/confirm_email?id=' + @user.confirm_token %>  %>
 </p>

@@ -11,7 +11,7 @@
   </div>
   <div class='links'>
     <ul>
-      <li><%= link_to t('.edit_data'), users_edit_path, class: 'text-dark', data: {turbo_method: :post} %></li>
+      <li><%= link_to t('.edit_data'), users_edit_path, class: 'text-dark', data: {turbo_method: :post}, id: 'edit_link' %></li>
       <li><%= link_to t('.return'), wishlist_path(current_user.id), id: 'to_wishlist', class: 'text-dark' %></li>
       <li><%= button_to t('.del'), users_destroy_path, method: :delete, id: 'delete_p', class: 'btn btn-outline-danger' %></li>
     </ul>

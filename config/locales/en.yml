@@ -116,7 +116,7 @@ en:
         password_digest: 'Password'
         password: 'Password'
         password_confirmation: 'Confirmation password'
-        msg_error: 'The password must have at least uppercase, uppercase letters, a number and have a length of more than 8 characters'
+        msg_error: 'must have at least uppercase, uppercase letters, a number and have a length of more than 8 characters'
   en: 'English'
   ru: 'Russian'
   welcome: 'Welcome! You have successfully registered'

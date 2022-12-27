@@ -2,4 +2,4 @@
 Привет, <%= @user.f_name %>!
 
 Спасибо за регистрацию. Чтобы продолжить, пройди по ссылке ниже :)
-<%= link_to 'Подвердить', confirm_email_user_url(@user.confirm_token, email: @user.email) %>
+<%= link_to 'Подвердить', confirm_email_user_url(@user.confirm_token) %>

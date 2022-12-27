@@ -36,16 +36,16 @@
                   </li>
                 <% end %>
                 <li class="nav-item">
-                  <%= link_to t('application.users'), users_show_path, class: 'nav-link'%>               
-                </li>
-                <li class="nav-item">=
-                  <%= link_to t('application.friends'), friendships_show_path, class: 'nav-link'%>               
+                  <%= link_to t('application.users'), users_show_path, class: 'nav-link', id: 'all_users'%>               
                 </li>
                 <li class="nav-item">
-                  <%= link_to t('application.i_give'), gifts_giver_presents_path, class: 'nav-link'%>               
+                  <%= link_to t('application.friends'), friendships_show_path, class: 'nav-link', id: 'friends_link' %>               
                 </li>
                 <li class="nav-item">
-                  <%= link_to t('application.account'), info_user_path, class: 'nav-link'%>               
+                  <%= link_to t('application.i_give'), gifts_giver_presents_path, class: 'nav-link', id: 'i_give'%>               
+                </li>
+                <li class="nav-item">
+                  <%= link_to t('application.account'), info_user_path, class: 'nav-link', id: 'account'%>               
                 </li>
                 <li class="nav-item">
                   <%= button_to t('application.exit'), session_path, method: :delete, class: 'btn btn-outline-dark', id: 'exit'%>               
