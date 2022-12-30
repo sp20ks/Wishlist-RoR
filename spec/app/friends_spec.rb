@@ -37,7 +37,7 @@ RSpec.describe 'Users' do
     flash = driver.find_element(id: 'flash').text
     expect(flash).to eq('The request was sent successfully')
     driver.quit
-   end
+  end
 
   it 'should cancle request' do
     driver = Selenium::WebDriver.for :firefox

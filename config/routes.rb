@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get '/users/confirm_email/:id', to: 'users#confirm_email', as: 'confirm_email_user'
 
@@ -7,7 +9,7 @@ Rails.application.routes.draw do
     get '/wishlist_types/destroy'
     root 'sessions#new', as: 'home'
 
-    #resource :friendship, only: %i[destroy]
+    # resource :friendship, only: %i[destroy]
     delete '/friendship/:id', to: 'friendships#destroy'
 
     resources :friendships
@@ -27,15 +29,13 @@ Rails.application.routes.draw do
     get '/users/:id', to: 'friendships#create'
     get '/users/destroy'
 
-
     get '/gifts/set_giver/:id', to: 'gifts#set_giver', as: 'giver'
     get '/gifts/remove_giver/:id', to: 'gifts#remove_giver', as: 'remove_giver'
-    get '/gifts/show/:id',to:'gifts#show' , as: 'wishlist'
-    post '/gifts/show/:id',to:'gifts#show_with_type' , as: 'wishlist_with_type'
+    get '/gifts/show/:id', to: 'gifts#show', as: 'wishlist'
+    post '/gifts/show/:id', to: 'gifts#show_with_type', as: 'wishlist_with_type'
     get '/gifts/giver_presents'
     post '/gifts/create'
-    resources :gifts  
-
+    resources :gifts
 
     get 'password/index', to: 'passwords#index'
     get 'password/new_password', to: 'passwords#new_password'
@@ -43,7 +43,7 @@ Rails.application.routes.draw do
     post 'password/reset', to: 'passwords#reset'
     put 'password/update', to: 'passwords#update'
 
-    #resource :user, only: %i[destroy]
+    # resource :user, only: %i[destroy]
 
     get '/wishlist_types/show', to: 'wishlist_types#show'
     post '/wishlist_types/create', to: 'wishlist_types#create'
@@ -51,7 +51,7 @@ Rails.application.routes.draw do
     resources :wishlist_types
     resource :wishlist_type, only: %i[destroy]
     resources :users
-    #resource :gift, only: %i[destroy]
+    # resource :gift, only: %i[destroy]
     resource :password, only: %i[update]
     resource :session, only: %i[new create destroy]
     resources :users do

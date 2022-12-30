@@ -67,8 +67,8 @@ RSpec.describe 'Users' do
     driver.find_element(id: 'l_name').send_keys('Last')
     driver.find_element(id: 'email').send_keys('spas.ksusha@gmail.com')
     driver.find_element(id: 'log').send_keys('ksusha')
-    driver.find_element(id: 'pass').send_keys('Qwerty12')
-    driver.find_element(id: 'pass_c').send_keys('Qwerty12')
+    driver.find_element(id: 'pass').send_keys('Qweerty12')
+    driver.find_element(id: 'pass_c').send_keys('Qweerty12')
     driver.find_element(id: 'reg_btn').click
     driver.manage.timeouts.implicit_wait = 50
 

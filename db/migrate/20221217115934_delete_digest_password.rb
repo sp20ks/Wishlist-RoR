@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DeleteDigestPassword < ActiveRecord::Migration[7.0]
   def change
     remove_column :users, :digest_password

@@ -5,6 +5,8 @@ class FriendshipsController < ApplicationController
   include FriendshipsHelper
   before_action :set_friendship, only: %i[destroy]
   before_action :autorize
+
+  # rubocop:disable Metrics/AbcSize
   def create
     @friendship = Friendship.new do |rec|
       rec.user_id = current_user.id
@@ -16,6 +18,7 @@ class FriendshipsController < ApplicationController
       redirect_to users_show_path, notice: @friendship.errors.full_messages.split.join('. ')
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
   def destroy
     @friendship.delete

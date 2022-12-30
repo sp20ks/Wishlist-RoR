@@ -3,8 +3,8 @@
 # controller
 class UsersController < ApplicationController
   include UsersHelper
-  before_action :autorize, only: %i[edit info_about_user show_by_login] 
-  #before_action :set_user, only: %i[destroy]
+  before_action :autorize, only: %i[edit info_about_user show_by_login]
+  # before_action :set_user, only: %i[destroy]
 
   def new; end
 
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def info_about_user; end
 
+  # rubocop:disable Metrics/AbcSize
   def create
     @user = User.new(user_params)
     if !@user.save
@@ -23,17 +24,6 @@ class UsersController < ApplicationController
       redirect_to home_path
     end
   end
-
-  def update
-    @user = current_user
-    if @user.update(user_params)
-      flash[:success] = t('.update_data')
-    else
-      flash[:notice] = @user.errors.full_messages.join('. ')
-    end
-    redirect_to info_user_path
-  end
-
 
   def confirm_email
     user = User.find_by_confirm_token(params[:id])
@@ -47,7 +37,17 @@ class UsersController < ApplicationController
       redirect_to new_user_path
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      flash[:success] = t('.update_data')
+    else
+      flash[:notice] = @user.errors.full_messages.join('. ')
+    end
+    redirect_to info_user_path
+  end
 
   def destroy
     redirect_to home_path, notice: t('.delete_acc') if User.destroy(current_user.id)

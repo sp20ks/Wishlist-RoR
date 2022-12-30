@@ -12,8 +12,7 @@ class WishlistTypesController < ApplicationController
     flash[:notice] = @gift.errors.full_messages.join('. ') unless @type.save
   end
 
-  def new
-  end
+  def new; end
 
   def destroy
     WishlistType.find(params[:id]).destroy

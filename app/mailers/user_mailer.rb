@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# mailer
 class UserMailer < ApplicationMailer
   def registration_confirmation(user)
     @user = user

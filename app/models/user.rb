@@ -20,7 +20,9 @@ class User < ApplicationRecord
   validates :l_name, presence: true, format: { with: /\A[a-zа-яА-ЯA-Z]+\z/ }
   validates :password_confirmation, presence: true
   validates :password, confirmation: true
-  validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*[0-9]).{8,}\z/, message: I18n.t('activerecord.attributes.user.msg_error')}
+  validates :password,
+            format: { with: /\A(?=.*[a-zA-Z])(?=.*[0-9]).{8,}\z/,
+                      message: I18n.t('activerecord.attributes.user.msg_error') }
   def email_activate
     self.email_confirmed = true
     self.confirm_token = nil
